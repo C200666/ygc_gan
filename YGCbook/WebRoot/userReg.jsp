@@ -8,7 +8,7 @@
 <body>
 	<form action = "userReg">
 		姓名:
-			<input id="username" name="username">
+			<input type = "text" id="username" name="username">
 			<br>
 		密码:
 			<input type="password" id="password" name = "password">
@@ -18,24 +18,24 @@
 			<input type="radio" name="sex"         id="sex2" value="1">女
 			<br>
 		爱好:
-			<input type="checkbox" name="hobby" value="0">足球
-			<input type="checkbox" name="hobby" value="1">篮球
-			<input type="checkbox" name="hobby" value="2">网球
+			<input type="checkbox" id = "hobby" name="hobby" value="0">足球
+			<input type="checkbox" id = "hobby" name="hobby" value="1">篮球
+			<input type="checkbox" id = "hobby" name="hobby" value="2">网球
 			<br>
 		专业:
 			<select id="major" name = "major">
 			<option value="0" >软件工程</option>
 			<option value="1" >英语</option>
-			<option value="2" >数学</option>
+			<option value="2" >数学</option> 
 			</select>
 			<br>
 		简介:
-			<br>
-			<textarea id="intro">abcd</textarea>
+			<br>	
+			<textarea id="intro" name = "intro">abcd</textarea>
 			<br>
 		
 		<input type="submit" value="注册用户">
-		<input type="button" value="重置">
+		<input type="reset"  value="重置">
 	</form>
 </body>
 </html>
