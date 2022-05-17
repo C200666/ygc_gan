@@ -46,7 +46,7 @@ public class UserRigsterServlet extends HttpServlet {
 			request.getRequestDispatcher("/userRegSuccess.jsp").forward(request, response);
 		}else{
 			System.out.println("导不了");
-			
+			request.getRequestDispatcher("/userRegFailed.jsp").forward(request, response);
 		}
 		
 		
