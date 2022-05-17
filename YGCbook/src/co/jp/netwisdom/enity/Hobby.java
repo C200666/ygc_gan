@@ -4,8 +4,6 @@ public class Hobby {
 	private String username;
 	private String hobby;
 	
-	 
-	
 	public String getUsername(){
 		return username;
 	}

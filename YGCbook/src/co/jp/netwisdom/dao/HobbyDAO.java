@@ -12,26 +12,23 @@ public class HobbyDAO {
 	
 	public boolean save(List list){
 		
-		int row = 0;
 		String sql = "insert into hobby(username,hobby)"+"values(?,?)";
 		
 		try {
-			
 			for(Object object : list){
 				Hobby hobbyObject = (Hobby)object;
 				Object[] values = null;
 				values = new Object[]{
 						hobbyObject.getUsername(),
 						hobbyObject.getHobby()};
-				row = template.updata(sql, values);
+				template.updata(sql, values);
 			}
-			
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return (row == 1);
+		return true;
 	
 	}
 }

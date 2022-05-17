@@ -588,13 +588,13 @@
   </servlet-mapping>
   
   <servlet>
-  		<servlet-name>userRegServlet</servlet-name>
-  		<servlet-class>co.jp.netwisdom.servlet.UserRigServlet</servlet-class>
+  		<servlet-name>UserRigsterServlet</servlet-name>
+  		<servlet-class>co.jp.netwisdom.servlet.UserRigsterServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-  		<servlet-name>userRegServlet</servlet-name>
-  		<url-pattern>/userReg</url-pattern>
+  		<servlet-name>UserRigsterServlet</servlet-name>
+  		<url-pattern>/userRigister</url-pattern>
   </servlet-mapping>
   
   <!--<error-page>
