@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.key.dbManager.JdbcTemplate;
-import co.jp.netwisdom.enity.Hobby;
+import co.jp.netwisdom.entity.Hobby;
 
 public class HobbyDAO {
 	private JdbcTemplate template = new JdbcTemplate();

@@ -1,4 +1,4 @@
-package co.jp.netwisdom.enity;
+package co.jp.netwisdom.entity;
 
 public class Hobby {
 	private String username;
