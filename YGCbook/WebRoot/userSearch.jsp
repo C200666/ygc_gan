@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="co.jp.netwisdom.dao.UserinfoHobbyDAO" %>
+<%@ page import="co.jp.netwisdom.dao.HobbyDAO" %>
 <%@ page import="co.jp.netwisdom.dto.UserinfoHobbyDto" %>
 <%@ page import="co.jp.netwisdom.entity.UserinfoHobby" %>
 <%@ page import="java.util.ArrayList" %>
@@ -20,16 +21,15 @@
 				<br>
 				<br>
 			性别:
-				<input type="radio" name="sex" checked id="sex1" value="0" />男
-				<input type="radio" name="sex"         id="sex2" value="1" />女
+				<input type="radio" name="sex"  id="sex1" value="0" />男
+				<input type="radio" name="sex"  id="sex2" value="1" />女
 				<br>
 				<br>
 			爱好:
-				<input type="checkbox" id = "hobby" name="hobby" value="0" />抠痞子
-				<input type="checkbox" id = "hobby" name="hobby" value="1" />挂马子
-				<input type="checkbox" id = "hobby" name="hobby" value="2" />追疯子
-				<input type="checkbox" id = "hobby" name="hobby" value="3" />操傻子
-				<input type="checkbox" id = "hobby" name="hobby" value="4" />扒老太太裤衩子
+				<input type="checkbox" id = "hobby" name="hobby" value="0" />唱
+				<input type="checkbox" id = "hobby" name="hobby" value="1" />跳
+				<input type="checkbox" id = "hobby" name="hobby" value="2" />rap
+				<input type="checkbox" id = "hobby" name="hobby" value="3" />篮球
 				<br>
 				<br>
 			专业:
@@ -60,15 +60,21 @@
 				<th>简介</th>
 				</tr>
 				<%if(list != null){ %>
-				<%for(UserinfoHobby UIH : list){ %>
-				<tr>
-				<td><%=UIH.getUsername() %></td>
-				<td><%=UIH.getPassword() %></td> 
-				<td><%=UIH.getSex() 	 %></td>
-				<td><%=UIH.getHobby() 	 %></td>
-				<td><%=UIH.getMajor()	 %></td>
-				<td><%=UIH.getIntro() 	 %></td>
-				</tr><%} %><%} %>
+					<%for(UserinfoHobby UH : list){ %>
+					<tr>
+					<td><%=UH.getUsername() %></td>
+					<td><%=UH.getPassword() %></td> 
+					<td>
+						<%=UH.getSex().replace("0", "男").replace("1", "女") %>
+					</td>
+					<td>
+						<%=UH.getHobby().replace("0", "唱").replace("1", "跳").replace("2", "rap").replace("3", "篮球").replace("4", "摸鱼")	%>
+					</td>
+					<td>
+						<%=UH.getMajor().replace("0", "软件工程").replace("1", "英语").replace("2", "数学")	%>
+					</td>
+					<td><%=UH.getIntro() 	%></td>
+					</tr><%} %><%} %>
 			</table>
 			
 			

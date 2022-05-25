@@ -21,11 +21,11 @@
 			<br>
 			<br>
 		爱好:
-			<input type="checkbox" id = "hobby" name="hobby" value="0" />抠痞子
-			<input type="checkbox" id = "hobby" name="hobby" value="1" />挂马子
-			<input type="checkbox" id = "hobby" name="hobby" value="2" />追疯子
-			<input type="checkbox" id = "hobby" name="hobby" value="3" />操傻子
-			<input type="checkbox" id = "hobby" name="hobby" value="4" />扒老太太裤衩子
+			<input type="checkbox" id = "hobby" name="hobby" value="0" />唱
+			<input type="checkbox" id = "hobby" name="hobby" value="1" />跳
+			<input type="checkbox" id = "hobby" name="hobby" value="2" />rap
+			<input type="checkbox" id = "hobby" name="hobby" value="3" />篮球
+			<input type="checkbox" id = "hobby" name="hobby" value="4" />摸鱼
 			<br>
 			<br>
 			

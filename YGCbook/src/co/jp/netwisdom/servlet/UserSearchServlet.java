@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.dto.HobbyDto;
 import co.jp.netwisdom.dto.UserinfoHobbyDto;
+import co.jp.netwisdom.entity.Hobby;
 import co.jp.netwisdom.entity.UserinfoHobby;
 
 public class UserSearchServlet extends HttpServlet {
@@ -22,13 +23,13 @@ public class UserSearchServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String sex = request.getParameter("sex");
 		String major = request.getParameter("major");
-		
+		String hobby = request.getParameter("hobby");
 		
 		
 //		新规DAO对象
 		UserinfoHobbyDAO userinfoHobbyDAO = new UserinfoHobbyDAO();
 //		传入输入的姓名性别等参数
-		List<UserinfoHobby> list = userinfoHobbyDAO.findUserinfoAndHobby(username, sex, major);
+		List<UserinfoHobby> list = userinfoHobbyDAO.findUserinfoAndHobby(username, sex, major,hobby);
 		
 		List<UserinfoHobbyDto> UserinfoHobbyDto = new ArrayList<UserinfoHobbyDto>();
 //		 标识dto是否被创建

@@ -12,25 +12,31 @@ public class UserinfoHobbyDAO {
 //	引用Jdbc模板
 	private JdbcTemplate template = new JdbcTemplate();
 
-	public List<UserinfoHobby> findUserinfoAndHobby(String username,String sex,String major){
+	public List<UserinfoHobby> findUserinfoAndHobby(String username,String sex,String major,String hobby){
 //		拿到前台的参数后执行sql文 查找参数
 		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby "
 				+ "from userinfo "
 				+ "left join hobby "
 				+ "on userinfo.username = hobby.username "
-				+ "where";
+				+ "where 1=1";
 		
 		if(!"".equals(username)){
-			sql +=   " userinfo.username='" + username + "' and sex='" + sex + "'";
-		}else{
-			sql +=   " sex='" + sex + "'";
+			sql +=   " and userinfo.username='" + username + "'";
 		}
 		
+		if (sex!=null) {
+			sql +=   " and sex='" + sex + "'";
+		}
+		
+		if (hobby!=null) {
+			sql +=   " and hobby='" + hobby + "'";
+		} 
 		
 		if(!"".equals(major)){
 			sql += " and major='" + major + "'";
 		}
-		sql += "GROUP BY userinfo.username";
+		
+		sql += " GROUP BY userinfo.username";
 		
 		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
 		try{
