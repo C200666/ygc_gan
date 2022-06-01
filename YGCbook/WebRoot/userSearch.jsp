@@ -63,7 +63,7 @@
 				<%if(list != null){ %>
 					<%for(UserinfoHobby UH : list){ %>
 					<tr>
-					<td><a href="userUpdate?username=<%=UH.getUsername() %>"><%=UH.getUsername() %></a></td>
+					<td><a href="userUpdateinit?username=<%=UH.getUsername() %>"><%=UH.getUsername() %></a></td>
 					<td><%=UH.getPassword() %></td> 
 					<td>
 						<%=UH.getSex().replace("0", "男").replace("1", "女") %>

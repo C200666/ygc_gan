@@ -29,19 +29,31 @@ public class UserUpdateServlet extends HttpServlet {
 		List<Hobby> hobbyList = new ArrayList<>();
 
 		// 循环前对数组判空 当不为空时执行（看看大象有没有选爱好）
-		if (hobbyArray != null) {
-			hobbyArray = new String[] { "" };
-		}
-		// 遍历所选的hobby 把hobbyobject放进List里面(循环遍历大象的爱好)
-		for (int i = 0; i < hobbyArray.length; i++) {
+		if (hobbyArray == null) {
+
 			// 创建一个hobby类的对象 循环一次创建一次 （创建一个大象）
 			Hobby hobbyObject = new Hobby();
 			// 给姓名设置属性值 （给大象名字）
 			hobbyObject.setUsername(username);
 			// 给爱好设置属性值 （给大象个爱好）
-			hobbyObject.setHobby(hobbyArray[i]);
+			hobbyObject.setHobby("");
 			// 把大象装冰箱里
 			hobbyList.add(hobbyObject);
+
+		}
+		// 循环前对数组判空 当不为空时执行（看看大象有没有选爱好）
+		if (hobbyArray != null) {
+			// 遍历所选的hobby 把hobbyobject放进List里面(循环遍历大象的爱好)
+			for (int i = 0; i < hobbyArray.length; i++) {
+				// 创建一个hobby类的对象 循环一次创建一次 （创建一个大象）
+				Hobby hobbyObject = new Hobby();
+				// 给姓名设置属性值 （给大象名字）
+				hobbyObject.setUsername(username);
+				// 给爱好设置属性值 （给大象个爱好）
+				hobbyObject.setHobby(hobbyArray[i]);
+				// 把大象装冰箱里
+				hobbyList.add(hobbyObject);
+			}
 		}
 
 		// DAO(data access object:数据访问操作 增删改查)
@@ -49,17 +61,17 @@ public class UserUpdateServlet extends HttpServlet {
 		UserinfoDAO userinfodao = new UserinfoDAO();
 		// 创建个运大象爱好的卡车
 		HobbyDAO hobbydao = new HobbyDAO();
-		
+
 		boolean delUserInfo = true;
 		delUserInfo = userinfodao.delUserInfo(username);
 		delUserInfo = userinfodao.save(new Userinfo(username, password, sex, major, intro));
-		
+
 		boolean delHobby = true;
 		delHobby = hobbydao.delHobby(username);
 		delHobby = hobbydao.save(hobbyList);
-		 
+
 		// 将用户数据和爱好数据导入数据库，并且判断是否导入成功并跳转页面
-		if (delUserInfo&&delHobby) {
+		if (delUserInfo && delHobby) {
 			System.out.println("开导");
 			request.getRequestDispatcher("/userUpdateSuccess.jsp").forward(request, response);
 		} else {
