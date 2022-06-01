@@ -3,7 +3,6 @@ package co.jp.netwisdom.dao;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
-
 import cn.key.dbManager.JdbcTemplate;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.mapping.UserinfoMapping;
@@ -36,8 +35,10 @@ public class UserinfoHobbyDAO {
 		if(!"".equals(major)){
 			sql += " and major='" + major + "'";
 		}
+		sql += " and userinfo.delFlg='0' and hobby.delFlg='0'";
 		
 		sql += " GROUP BY userinfo.username";
+		
 		
 		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
 		try{
@@ -59,6 +60,7 @@ public class UserinfoHobbyDAO {
 		if(!"".equals(username)){
 			sql +=   " and userinfo.username='" + username + "'";
 		}
+		sql += " and userinfo.delFlg='0' and hobby.delFlg='0'";
 		
 		sql += " GROUP BY userinfo.username";
 		
@@ -72,44 +74,6 @@ public class UserinfoHobbyDAO {
 		return list.get(0);
 	}
 
-	public List<UserinfoHobby> findUserinfoHobby(String username,String sex,String major,String hobby){
-//		拿到前台的参数后执行sql文 查找参数
-		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby "
-				+ "from userinfo "
-				+ "left join hobby "
-				+ "on userinfo.username = hobby.username "
-				+ "where 1=1";
-		
-		if(!"".equals(username)){
-			sql +=   " and userinfo.username='" + username + "'";
-		}
-		
-		if (sex!=null) {
-			sql +=   " and sex='" + sex + "'";
-		}
-		
-		if (hobby!=null) {
-			sql +=   " and hobby='" + hobby + "'";
-		} 
-		
-		if(!"".equals(major)){
-			sql += " and major='" + major + "'";
-		}
-		sql += " and userinfo.delFlg='0' and hobby.delFlg='0'";
-		
-		sql += " GROUP BY userinfo.username";
-		
-		
-		
-		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
-		try{
-			list = template.selete(sql, new UserinfoMapping());
-		}catch (SQLException e){
-			e.printStackTrace();
-		}
-		 
-		return list;
-	}
 
 
 

@@ -17,12 +17,18 @@
 <head>
 <title>用户更新页面</title>
 
+<script>
+function changeActionName(changeActionName){
+	document.getElementById("form").action="userDel";
+}
+</script>
 </head>
+
 
    
 <body style="text-align:center">
 	<%if(list != null){%>
-	<form action = "userUpdate">
+	<form action = "userUpdate" id="form">
 		姓名:
 			<input type = "text" id="username" name="username" readonly value="<%=list.getUsername() %>">
 			<br>
@@ -54,14 +60,14 @@
 			</select>
 			<br>
 			<br>
-		简介:
+		简介:	
 			<br>	
 			<textarea id="intro" name = "intro" ><%=list.getIntro() %></textarea>
 			<br>
 			<br>
 		
-		<input type="submit" value="更新用户" />
-		<input type="submit" value="删除用户" />
+		<input type="submit" value="更新用户"  />
+		<input type="submit" value="删除用户" onclick="changeActionName('userDel')" />
 		<input type="reset"  value="重置" />
 		<%}%>
 	</form>

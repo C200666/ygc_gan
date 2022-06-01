@@ -64,10 +64,10 @@ public class UserRegisterServlet extends HttpServlet {
 
 		// 将用户数据和爱好数据导入数据库，并且判断是否导入成功并跳转页面
 		if (userinfodao.save(new Userinfo(username, password, sex, major, intro)) && hobbydao.save(hobbyList)) {
-			System.out.println("开导");
+			System.out.println("注册成功");
 			request.getRequestDispatcher("/userRegSuccess.jsp").forward(request, response);
 		} else {
-			System.out.println("导不了");
+			System.out.println("注册失败");
 		}
 
 	}

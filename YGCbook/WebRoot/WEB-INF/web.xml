@@ -635,6 +635,24 @@
   </servlet-mapping>
   <!-- 更新结束 -->
   
+  <!-- 删除开始 -->
+  <servlet>
+  		<servlet-name>UserDelServlet</servlet-name>
+  		<servlet-class>co.jp.netwisdom.servlet.UserDelServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  		<servlet-name>UserDelServlet</servlet-name>
+  		<url-pattern>/userDel</url-pattern>
+  </servlet-mapping>
+  <!-- 删除结束 -->
+  
+  
+  
+  
+  
+  
+  
   <!--<error-page>
   	<error-code>404</error-code>
   	<location>/error404.jsp</location>

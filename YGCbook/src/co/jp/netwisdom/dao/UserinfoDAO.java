@@ -14,8 +14,7 @@ public class UserinfoDAO {
 		// 执行的sql文
 		String sql = "insert into userinfo(username,password,sex,major,intro)" + " values(?,?,?,?,?)";
 		// 传值
-		Object[] values = new Object[] { userinfo.getUsername(), userinfo.getPassword(), userinfo.getSex(),
-				userinfo.getMajor(), userinfo.getIntro() };
+		Object[] values = new Object[] {userinfo.getUsername(), userinfo.getPassword(), userinfo.getSex(),userinfo.getMajor(), userinfo.getIntro()};
 		// 捕捉 抛出异常
 		try {
 			row = template.updata(sql, values);

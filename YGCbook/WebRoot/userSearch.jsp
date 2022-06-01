@@ -60,9 +60,11 @@
 				<th>专业</th>
 				<th>简介</th>
 				</tr>
+				<%int i = 0; %>
 				<%if(list != null){ %>
-					<%for(UserinfoHobby UH : list){ %>
-					<tr>
+					<%for(UserinfoHobby UH : list){ i++;%>
+					<%if(i % 2 == 0){ %><tr style=background-color:#9393FF>
+					<%}else{ %><tr style=background-color:#FF8EFF><%} %>
 					<td><a href="userUpdateinit?username=<%=UH.getUsername() %>"><%=UH.getUsername() %></a></td>
 					<td><%=UH.getPassword() %></td> 
 					<td>

@@ -72,10 +72,10 @@ public class UserUpdateServlet extends HttpServlet {
 
 		// 将用户数据和爱好数据导入数据库，并且判断是否导入成功并跳转页面
 		if (delUserInfo && delHobby) {
-			System.out.println("开导");
+			System.out.println("更新成功");
 			request.getRequestDispatcher("/userUpdateSuccess.jsp").forward(request, response);
 		} else {
-			System.out.println("导不了");
+			System.out.println("更新失败");
 		}
 
 	}
