@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.dto.HobbyDto;
 import co.jp.netwisdom.dto.UserinfoHobbyDto;
-import co.jp.netwisdom.entity.Hobby;
 import co.jp.netwisdom.entity.UserinfoHobby;
 
 public class UserSearchServlet extends HttpServlet {
@@ -71,7 +70,8 @@ public class UserSearchServlet extends HttpServlet {
 				System.out.println("简介：" + result.getIntro());
 				System.out.print("爱好：");
 				for(HobbyDto hobbyDto: result.getHobbyList()){
-					System.out.print(hobbyDto.getHobby() + " ");
+					
+					System.out.print(hobbyDto.getHobby());
 				}
 				System.out.println();
 				System.out.println("---------------------------------------------------------------------------------");
@@ -91,5 +91,4 @@ public class UserSearchServlet extends HttpServlet {
 		this.doGet(req, resp);
 	}
 }
-
  

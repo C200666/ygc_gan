@@ -30,11 +30,12 @@
 				<input type="checkbox" id = "hobby" name="hobby" value="1" />跳
 				<input type="checkbox" id = "hobby" name="hobby" value="2" />rap
 				<input type="checkbox" id = "hobby" name="hobby" value="3" />篮球
+				<input type="checkbox" id = "hobby" name="hobby" value="4" />摸鱼
 				<br>
 				<br>
 			专业:
 				<select id="major" name = "major">
-				<option value="" ></option> 
+				<option value="" >-</option> 
 				<option value="0" >软件工程</option>
 				<option value="1" >英语</option>
 				<option value="2" >数学</option> 
@@ -62,16 +63,16 @@
 				<%if(list != null){ %>
 					<%for(UserinfoHobby UH : list){ %>
 					<tr>
-					<td><%=UH.getUsername() %></td>
+					<td><a href="userUpdate?username=<%=UH.getUsername() %>"><%=UH.getUsername() %></a></td>
 					<td><%=UH.getPassword() %></td> 
 					<td>
 						<%=UH.getSex().replace("0", "男").replace("1", "女") %>
 					</td>
 					<td>
-						<%=UH.getHobby().replace("0", "唱").replace("1", "跳").replace("2", "rap").replace("3", "篮球").replace("4", "摸鱼")	%>
+						<%=UH.getHobby().replace("0", "唱").replace("1", "跳").replace("2", "rap").replace("3", "篮球").replace("4", "摸鱼")%>
 					</td>
 					<td>
-						<%=UH.getMajor().replace("0", "软件工程").replace("1", "英语").replace("2", "数学")	%>
+						<%=UH.getMajor().replace("0", "软件工程").replace("1", "英语").replace("2", "数学")%>
 					</td>
 					<td><%=UH.getIntro() 	%></td>
 					</tr><%} %><%} %>

@@ -7,6 +7,7 @@ public class Userinfo {
 	private String sex;
 	private String major;
 	private String intro;
+
 	
 	public String getUsername() {
 		return username;

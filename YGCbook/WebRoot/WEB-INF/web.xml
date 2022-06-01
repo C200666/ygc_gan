@@ -608,6 +608,17 @@
   		<url-pattern>/userSearch</url-pattern>
   </servlet-mapping>
   
+  
+  
+  <servlet>
+  		<servlet-name>UserUpdateinitServlet</servlet-name>
+  		<servlet-class>co.jp.netwisdom.servlet.UserUpdateinitServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  		<servlet-name>UserUpdateinitServlet</servlet-name>
+  		<url-pattern>/userUpdate</url-pattern>
+  </servlet-mapping>
   <!--<error-page>
   	<error-code>404</error-code>
   	<location>/error404.jsp</location>
