@@ -1,28 +1,32 @@
-package co.jp.netwisdom.servlet;
+package co.jp.netwisdom.action;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
 import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.dto.HobbyDto;
 import co.jp.netwisdom.dto.UserinfoHobbyDto;
 import co.jp.netwisdom.entity.UserinfoHobby;
+import co.jp.netwisdom.form.Userform;
 
-public class UserSearchServlet extends HttpServlet {
+public class UserSearchAction extends Action {
 //	获取前台请求的参数值
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String sex = request.getParameter("sex");
-		String major = request.getParameter("major");
-		String intro = request.getParameter("intro");
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response) 
+			throws Exception {
+		
+		Userform userform = (Userform) form;
+		
+		
+		String username = userform.getUsername();
+		String sex = userform.getSex();
+		String major = userform.getMajor();
+		String intro = userform.getIntro();
 		String hobby = request.getParameter("hobby");
 		
 		
@@ -81,15 +85,10 @@ public class UserSearchServlet extends HttpServlet {
 			request.setAttribute("date",list);
 		
 		
-//			不会把参数清除再进行跳转
-			request.getRequestDispatcher("/userSearch.jsp").forward(request, response);
-		
+			return mapping.findForward("userSearch");
 		
 		
 	}
 	
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.doGet(req, resp);
-	}
 }
  

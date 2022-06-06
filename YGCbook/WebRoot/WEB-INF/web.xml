@@ -587,7 +587,7 @@
     <url-pattern>/ChangeServlet</url-pattern>
   </servlet-mapping>
   
-  <!-- ÓÃ»§×¢²á -->
+  <!-- ï¿½Ã»ï¿½×¢ï¿½ï¿½ -->
   <servlet>
   		<servlet-name>UserRigsterServlet</servlet-name>
   		<servlet-class>co.jp.netwisdom.servlet.UserRegisterServlet</servlet-class>
@@ -597,9 +597,9 @@
   		<servlet-name>UserRigsterServlet</servlet-name>
   		<url-pattern>/userRegister</url-pattern>
   </servlet-mapping>
-  <!-- ÓÃ»§×¢²á½áÊø -->
+  <!-- ï¿½Ã»ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ -->
   
-  <!-- ÓÃ»§²éÑ¯ -->
+  <!-- ï¿½Ã»ï¿½ï¿½ï¿½Ñ¯ -->
   <servlet>
   		<servlet-name>UserSearchServlet</servlet-name>
   		<servlet-class>co.jp.netwisdom.servlet.UserSearchServlet</servlet-class>
@@ -609,9 +609,9 @@
   		<servlet-name>UserSearchServlet</servlet-name>
   		<url-pattern>/userSearch</url-pattern>
   </servlet-mapping>
-  <!-- ÓÃ»§²éÑ¯½áÊø -->
+  <!-- ï¿½Ã»ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ -->
   
-  <!-- ¸üÐÂ³õÊ¼»¯ -->
+  <!-- ï¿½ï¿½ï¿½Â³ï¿½Ê¼ï¿½ï¿½ -->
   <servlet>
   		<servlet-name>UserUpdateinitServlet</servlet-name>
   		<servlet-class>co.jp.netwisdom.servlet.UserUpdateinitServlet</servlet-class>
@@ -621,9 +621,9 @@
   		<servlet-name>UserUpdateinitServlet</servlet-name>
   		<url-pattern>/userUpdateinit</url-pattern>
   </servlet-mapping>
-  <!-- ¸üÐÂ³õÊ¼»¯½áÊø -->
+  <!-- ï¿½ï¿½ï¿½Â³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
   
-  <!-- ¸üÐÂ¿ªÊ¼ -->
+  <!-- ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ -->
   <servlet>
   		<servlet-name>UserUpdateServlet</servlet-name>
   		<servlet-class>co.jp.netwisdom.servlet.UserUpdateServlet</servlet-class>
@@ -633,9 +633,9 @@
   		<servlet-name>UserUpdateServlet</servlet-name>
   		<url-pattern>/userUpdate</url-pattern>
   </servlet-mapping>
-  <!-- ¸üÐÂ½áÊø -->
+  <!-- ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ -->
   
-  <!-- É¾³ý¿ªÊ¼ -->
+  <!-- É¾ï¿½ï¿½ï¿½ï¿½Ê¼ -->
   <servlet>
   		<servlet-name>UserDelServlet</servlet-name>
   		<servlet-class>co.jp.netwisdom.servlet.UserDelServlet</servlet-class>
@@ -645,9 +645,24 @@
   		<servlet-name>UserDelServlet</servlet-name>
   		<url-pattern>/userDel</url-pattern>
   </servlet-mapping>
-  <!-- É¾³ý½áÊø -->
+  <!-- É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
   
-  
+  <!-- å¯¼å…¥struts1  -->
+ <servlet>
+     	<servlet-name>action</servlet-name>
+    		<!-- å¼•å…¥Servletçš„åŒ…æ‰€æœ‰çš„è·¯å¾„ -->
+     	<servlet-class>org.apache.struts.action.ActionServlet</servlet-class> <!-- ä¸­å¤®å¤„ç†Servlet(é…åˆstruts-config.xmlè¿›è¡Œåˆ†å‘) -->
+         	<!-- åˆå§‹åŒ–é…ç½®æ–‡ä»¶ -->
+     	<init-param>
+       		<param-name>config</param-name>
+       		<param-value>/WEB-INF/struts-config.xml</param-value>
+     	</init-param>
+ </servlet>
+    		<!-- å¯¹å¤–æä¾›æœåŠ¡ -->
+ <servlet-mapping>
+     	<servlet-name>action</servlet-name>
+     	<url-pattern>*.do</url-pattern>   <!-- å¯¹åº”æ‰€æœ‰çš„è¯·æ±‚ -->
+ </servlet-mapping>
   
   
   

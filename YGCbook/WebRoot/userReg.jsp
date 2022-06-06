@@ -6,7 +6,7 @@
 
 
 <body style="text-align:center">
-	<form action = "userRegister">
+	<form action = "userRegister.do">
 		姓名:
 			<input type = "text" id="username" name="username" />
 			<br>

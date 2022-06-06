@@ -12,7 +12,7 @@ public class UserinfoHobbyDAO {
 	private JdbcTemplate template = new JdbcTemplate();
 	
 
-	public List<UserinfoHobby> findUserinfoAndHobby(String username,String sex,String major,String hobby){
+	public List<UserinfoHobby> findUserinfoAndHobby(String username,String sex,String major,String intro,String hobby){
 //		拿到前台的参数后执行sql文 查找参数
 		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby "
 				+ "from userinfo "
@@ -73,10 +73,6 @@ public class UserinfoHobbyDAO {
 		 
 		return list.get(0);
 	}
-
-
-
-
 
 }
 

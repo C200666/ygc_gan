@@ -19,8 +19,8 @@
 
 <script>
 function changeActionName(changeActionName){
-	document.getElementById("form").action="userDel";
-}
+	document.getElementById("form").action="userDel.do";
+	}
 </script>
 </head>
 
@@ -28,7 +28,7 @@ function changeActionName(changeActionName){
    
 <body style="text-align:center">
 	<%if(list != null){%>
-	<form action = "userUpdate" id="form">
+	<form action = "userUpdate.do" id="form">
 		姓名:
 			<input type = "text" id="username" name="username" readonly value="<%=list.getUsername() %>">
 			<br>
