@@ -11,7 +11,7 @@ public class HobbyDAO {
 	private JdbcTemplate template = new JdbcTemplate();
 
 	public boolean save(List<Hobby> list) {
-		// 把大象从冰箱里拿出来的放入冷库的步骤
+		// 把大象从冰箱里拿出来的放入冷库的步骤 
 		// 把冷库门打开
 		String sql = "insert into hobby(username,hobby)" + "values(?,?)";
 

@@ -9,7 +9,7 @@ public class Userform extends ActionForm {
 	private String major;
 	private String intro;
 	private String[] hobby;
-	
+	private String[] checkOne;
 	
 	public String getUsername() {
 		return username;
@@ -48,16 +48,11 @@ public class Userform extends ActionForm {
 	public void setHobby(String[] hobby) {
 		this.hobby = hobby;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String[] getCheckOne() {
+		return checkOne;
+	}
+	public void setCheckOne(String[] checkOne) {
+		this.checkOne = checkOne;
+	}
 	
 }

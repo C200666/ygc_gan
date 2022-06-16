@@ -82,6 +82,11 @@ public class UserUpdateServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		this.doGet(req, resp);
+		// 创建一个泛型为Integer类型的集合 声明爸爸，创建儿子
+		List<Integer> list = new ArrayList<Integer>();
+		// 创建一个数组 里面元素都为int类型
+		double[] array = {1,(int)2d,3,4};
+		// 强转（需要被强转的类型）被强转的对象:大转小 强转
 	}
 
 }

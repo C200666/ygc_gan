@@ -657,6 +657,8 @@
        		<param-name>config</param-name>
        		<param-value>/WEB-INF/struts-config.xml</param-value>
      	</init-param>
+     	<!-- 加载顺序 -->
+  		<load-on-startup>0</load-on-startup>
  </servlet>
     		<!-- 对外提供服务 -->
  <servlet-mapping>
@@ -664,7 +666,7 @@
      	<url-pattern>*.do</url-pattern>   <!-- 对应所有的请求 -->
  </servlet-mapping>
   
-  
+   
   
   
   

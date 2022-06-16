@@ -4,6 +4,7 @@
    			"http://struts.apache.org/dtds/struts-config_1_3.dtd">  
    			<struts-config>
 	   			<form-beans>
+	   			
 	   				<form-bean name="userForm" type="co.jp.netwisdom.form.Userform"/>
 	   			</form-beans>
    	 			<action-mappings>
@@ -47,6 +48,29 @@
 						<forward name="userDel" path="/userDelSuccess.jsp" /> 
    	 				</action>
    	 				
+   	 				<action path="/userDelAll"
+   	 			            type="co.jp.netwisdom.action.UserDelAllAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userDelAll" path="/userDelSuccess.jsp" /> 
+   	 				</action>
+   	 				
+   	 				<action path="/userNameCheck"
+   	 			            type="co.jp.netwisdom.action.UserNameCheckAction"
+							name="userForm"	
+   	 			            scope="request">
+   	 				</action>
+   	 				
+   	 				<action path="/userNameSearch"
+   	 			            type="co.jp.netwisdom.action.UserNameSearchAction"
+							name="userForm"	
+   	 			            scope="request">
+   	 				</action>
    	 				
      				</action-mappings>
+     				<message-resources key ="userResources" parameter="applicationResources"/> 
+
+					 <!-- key =jsp文件内的 bundle   parameter= applicationResources  -->
+					
+					 <!-- 注意parameter=文件名 若在SRC目录下不需要加.properties后缀 若不在的情况下则需要添加后缀 -->
   			</struts-config >
