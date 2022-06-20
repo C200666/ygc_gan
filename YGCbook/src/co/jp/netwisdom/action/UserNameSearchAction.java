@@ -8,9 +8,9 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.form.Userform;
+import co.jp.netwisdom.service.UserNameSearchService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -22,18 +22,12 @@ public class UserNameSearchAction extends Action {
 		
 		Userform userform = (Userform) form;
 		
-		
 		String username = userform.getUsername();
 		String sex = userform.getSex();
 		String major = userform.getMajor();
 		
+		List<UserinfoHobby> list = new UserNameSearchService().userNameSearch(username, sex, major); 
 		
-//		新规DAO对象
-		UserinfoHobbyDAO userinfoHobbyDAO = new UserinfoHobbyDAO();
-//		传入输入的姓名性别等参数
-		List<UserinfoHobby> list = userinfoHobbyDAO.findUserinfoAndHobby(username, sex, major);
-		
-		request.setAttribute("data", list);
 		response.setContentType("text/html;charset=UTF-8");
 		
 		PrintWriter pw = response.getWriter();
@@ -41,12 +35,6 @@ public class UserNameSearchAction extends Action {
 		JSONObject jo = new JSONObject();
 		jo.put("users", json);
 		pw.print(jo);
-
-//		if (list.size() >= 1) {
-//			pw.print("1");
-//		} else {
-//			pw.print("0");
-//		}
 
 		return null;
 		

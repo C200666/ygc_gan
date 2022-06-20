@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 import co.jp.netwisdom.dao.HobbyDAO;
 import co.jp.netwisdom.dao.UserinfoDAO;
 import co.jp.netwisdom.form.Userform;
+import co.jp.netwisdom.service.UserDeleteService;
 
 //处理前台请求
 public class UserDelAction extends Action {
@@ -21,14 +22,9 @@ public class UserDelAction extends Action {
 		Userform userform = (Userform) form;
 	
 		String username = userform.getUsername();
-		// 创建个运大象信息的卡车
-		UserinfoDAO userinfodao = new UserinfoDAO();
-		// 创建个运大象爱好的卡车
-		HobbyDAO hobbydao = new HobbyDAO();
-
-		 userinfodao.delUserInfo(username);
-
-		 hobbydao.delHobby(username);
+		
+		new UserDeleteService().userDelete(username);
+		
 		 
 		 
 		 return mapping.findForward("userDel");

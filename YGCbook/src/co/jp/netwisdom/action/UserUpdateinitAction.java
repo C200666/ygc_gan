@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.form.Userform;
+import co.jp.netwisdom.service.UserUpdateInitService;
 
 public class UserUpdateinitAction extends Action {
 	// 获取前台请求的参数值
@@ -19,6 +20,9 @@ public class UserUpdateinitAction extends Action {
 		Userform userform = (Userform) form;
 		
 		String username = userform.getUsername();
+		
+		UserUpdateInitService upService = new UserUpdateInitService();
+		upService.userUpdateInit(username);
 
 		// 新规DAO对象
 		UserinfoHobbyDAO userinfoHobbyDAO = new UserinfoHobbyDAO();

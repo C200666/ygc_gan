@@ -8,9 +8,9 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.form.Userform;
+import co.jp.netwisdom.service.UserNameCheckService;
 
 public class UserNameCheckAction extends Action {
 	// 获取前台请求的参数值
@@ -23,9 +23,9 @@ public class UserNameCheckAction extends Action {
 		String username = userform.getUsername();
 
 		// 新规DAO对象
-		UserinfoHobbyDAO userinfoHobbyDAO = new UserinfoHobbyDAO();
+		List<UserinfoHobby> list = new UserNameCheckService().userNameCheck(username);
+		
 		// 传入输入的姓名性别等参数
-		List<UserinfoHobby> list = userinfoHobbyDAO.checkUserName(username);
 
 		PrintWriter pw = response.getWriter();
 

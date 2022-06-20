@@ -59,7 +59,7 @@
         		dataType : 'json', // 接受数据格式
         		async : true,// 异步加载
         		success : function(users) {
-        			// 删除第一行列表
+        			// 删除除标题行以外的行
             		while($("#table tr").length>1){
             			$("#table tr").eq(1).remove();
             		}
@@ -94,6 +94,7 @@
         				'<td ><input type="button" value="更新" onClick=userUpdate('+ username +')></td>'+
         				'<td ><input type="button" value="删除" onClick=userDel('+ username +')></td>'+
         				'</tr>';
+        				//table末尾中添加html代码
         				$("#table").append(usertable);
 	        		}
         			$("#table").append('<tr>'+

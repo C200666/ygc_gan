@@ -11,8 +11,7 @@ public class UserinfoHobbyDAO {
 	// 引用Jdbc模板
 	private JdbcTemplate template = new JdbcTemplate();
 
-	public List<UserinfoHobby> findUserinfoAndHobby(String username, String sex, String major, String intro,
-			String hobby) {
+	public List<UserinfoHobby> findUserinfoAndHobby(String username, String sex, String major, String intro,String hobby) {
 		// 拿到前台的参数后执行sql文 查找参数
 		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby " + "from userinfo "
 				+ "left join hobby " + "on userinfo.username = hobby.username " + "where 1=1";
