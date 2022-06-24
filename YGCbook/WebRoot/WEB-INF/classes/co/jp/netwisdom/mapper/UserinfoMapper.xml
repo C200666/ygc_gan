@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+   <!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.jp.netwisdom.mapper.UserinfoMapper">
+	<!-- 保存 -->
+	<insert id="save">
+		insert into 
+			userinfo(username,password,sex,major,intro)
+		values
+			(#{username},#{password},#{sex},#{major},#{intro})
+	</insert>
+
+	<!-- 更新/伦理删除 -->
+	<update id="upUserinfoFlag">
+		update userinfo set delFlg='1' where userinfo.username = #{0}
+	</update>
+
+	<!-- Ajax检查姓名 -->
+	<select id="userNameCheck" resultType="co.jp.netwisdom.entity.Userinfo">
+		select * from userinfo where username = #{username} and delFlg ='0'
+	</select>
+
+</mapper>

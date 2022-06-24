@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   			<!DOCTYPE struts-config PUBLIC 
+   			"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+   			"http://struts.apache.org/dtds/struts-config_1_3.dtd">  
+   			<struts-config>
+	   			<form-beans>
+	   			
+	   				<form-bean name="userForm" type="co.jp.netwisdom.form.Userform"/>
+	   			</form-beans>
+   	 			<action-mappings>
+   	 			
+   	 				<action path="/userRegister"
+   	 			            type="co.jp.netwisdom.action.UserRegisterAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userReg" path="/userRegSuccess.jsp" /> 
+						<forward name="userNoReg" path="/userRegFailed.jsp" />
+   	 				</action>
+   	 				
+   	 				
+   	 				<action path="/userSearch"
+   	 			            type="co.jp.netwisdom.action.UserSearchAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userSearch" path="/userSearch.jsp" /> 
+   	 				</action>
+   	 				
+   	 				
+   	 				<action path="/userUpdateinit"
+   	 			            type="co.jp.netwisdom.action.UserUpdateinitAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userInit" path="/userUpdate.jsp" /> 
+   	 				</action>
+   	 				
+   	 				
+   	 				<action path="/userUpdate"
+   	 			            type="co.jp.netwisdom.action.UserUpdateAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userUpdate" path="/userUpdateSuccess.jsp" /> 
+   	 				</action>
+   	 				
+   	 				
+   	 				<action path="/userDel"
+   	 			            type="co.jp.netwisdom.action.UserDelAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userDel" path="/userDelSuccess.jsp" /> 
+   	 				</action>
+   	 				
+   	 				<action path="/userDelAll"
+   	 			            type="co.jp.netwisdom.action.UserDelAllAction"
+							name="userForm"	
+   	 			            scope="request">
+						<forward name="userDelAll" path="/userDelSuccess.jsp" /> 
+   	 				</action>
+   	 				
+   	 				<action path="/userNameCheck"
+   	 			            type="co.jp.netwisdom.action.UserNameCheckAction"
+							name="userForm"	
+   	 			            scope="request">
+   	 				</action>
+   	 				
+   	 				<action path="/userNameSearch"
+   	 			            type="co.jp.netwisdom.action.UserNameSearchAction"
+							name="userForm"	
+   	 			            scope="request">
+   	 				</action>
+   	 				
+     				</action-mappings>
+     				<message-resources key ="userResources" parameter="applicationResources"/> 
+
+					 <!-- key =jsp文件内的 bundle   parameter= applicationResources  -->
+					
+					 <!-- 注意parameter=文件名 若在SRC目录下不需要加.properties后缀 若不在的情况下则需要添加后缀 -->
+  			</struts-config >

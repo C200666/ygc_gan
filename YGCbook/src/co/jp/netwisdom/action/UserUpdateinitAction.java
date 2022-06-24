@@ -6,12 +6,14 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import co.jp.netwisdom.dao.UserinfoHobbyDAO;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.form.Userform;
 import co.jp.netwisdom.service.UserUpdateInitService;
 
 public class UserUpdateinitAction extends Action {
+	
+	private UserUpdateInitService userUpdateInitService = new UserUpdateInitService();
+	
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response) 
@@ -21,16 +23,9 @@ public class UserUpdateinitAction extends Action {
 		
 		String username = userform.getUsername();
 		
-		UserUpdateInitService upService = new UserUpdateInitService();
-		upService.userUpdateInit(username);
-
-		// 新规DAO对象
-		UserinfoHobbyDAO userinfoHobbyDAO = new UserinfoHobbyDAO();
-		// 传入输入的姓名性别等参数
-		UserinfoHobby list = userinfoHobbyDAO.findUserinfoAndHobby(username);
+		UserinfoHobby list = userUpdateInitService.userUpdateInit(username);
 
 		request.setAttribute("data", list);
-		// 不会把参数清除再进行跳转
 		
 		return mapping.findForward("userInit");
 	}

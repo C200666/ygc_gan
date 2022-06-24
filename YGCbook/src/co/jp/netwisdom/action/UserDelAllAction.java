@@ -12,6 +12,9 @@ import co.jp.netwisdom.service.DeleteAllService;
 
 //处理前台请求
 public class UserDelAllAction extends Action {
+	
+	private DeleteAllService userDeleteAllService = new DeleteAllService();
+	
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response)
@@ -21,7 +24,7 @@ public class UserDelAllAction extends Action {
 	
 		String[] usernames = userform.getCheckOne();
 		
-		new DeleteAllService().deleteAll(usernames);
+		userDeleteAllService.deleteAll(usernames);
 		
 		return mapping.findForward("userDelAll");
 		

@@ -12,6 +12,9 @@ import co.jp.netwisdom.service.UserUpdateService;
 
 //处理前台请求
 public class UserUpdateAction extends Action {
+	
+	private UserUpdateService userUpdateService = new UserUpdateService();
+	
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -29,7 +32,7 @@ public class UserUpdateAction extends Action {
 		dto.setHobby(userform.getHobby());
 		dto.setHobby(userform.getHobby());
 
-		new UserUpdateService().userUpdate(dto);
+		userUpdateService.userUpdate(dto);
 
 		return mapping.findForward("userUpdate");
 

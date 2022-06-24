@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.jp.netwisdom.mapper.HobbyMapper">
+	<!-- 保存 -->
+	<insert id="save">
+		insert into hobby(username,hobby) values(#{username},#{hobby})
+	</insert>
+	<!-- 更新/伦理删除 -->
+	<update id="upHobbyFlag">
+		update hobby set delFlg = '1' where username = #{0}
+	</update>
+</mapper>

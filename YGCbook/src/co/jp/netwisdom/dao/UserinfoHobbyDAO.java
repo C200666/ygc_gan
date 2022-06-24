@@ -11,7 +11,8 @@ public class UserinfoHobbyDAO {
 	// 引用Jdbc模板
 	private JdbcTemplate template = new JdbcTemplate();
 
-	public List<UserinfoHobby> findUserinfoAndHobby(String username, String sex, String major, String intro,String hobby) {
+	public List<UserinfoHobby> findUserinfoAndHobby(String username, String sex, String major, String intro,
+			String hobby) {
 		// 拿到前台的参数后执行sql文 查找参数
 		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby " + "from userinfo "
 				+ "left join hobby " + "on userinfo.username = hobby.username " + "where 1=1";
@@ -28,7 +29,7 @@ public class UserinfoHobbyDAO {
 			sql += " and hobby='" + hobby + "'";
 		}
 
-		if (major != null && !"".equals(major) ) {
+		if (major != null && !"".equals(major)) {
 			sql += " and major='" + major + "'";
 		}
 		sql += " and userinfo.delFlg='0' and hobby.delFlg='0'";
@@ -81,10 +82,7 @@ public class UserinfoHobbyDAO {
 
 		return list;
 	}
-	
-	
-	
-	
+
 	public List<UserinfoHobby> findUserinfoAndHobby(String username, String sex, String major) {
 		// 拿到前台的参数后执行sql文 查找参数
 		String sql = "select userinfo.username,password,sex,major,intro,GROUP_CONCAT(hobby) hobby " + "from userinfo "
@@ -98,7 +96,7 @@ public class UserinfoHobbyDAO {
 			sql += " and sex='" + sex + "'";
 		}
 
-		if (major != null && !"".equals(major) ) {
+		if (major != null && !"".equals(major)) {
 			sql += " and major='" + major + "'";
 		}
 		sql += " and userinfo.delFlg='0' and hobby.delFlg='0'";

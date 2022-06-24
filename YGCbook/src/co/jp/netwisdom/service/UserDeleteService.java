@@ -1,23 +1,17 @@
 package co.jp.netwisdom.service;
 
-import co.jp.netwisdom.dao.HobbyDAO;
-import co.jp.netwisdom.dao.UserinfoDAO;
+import co.jp.netwisdom.Utils.MyBatisUtil;
+import co.jp.netwisdom.mapper.HobbyMapper;
+import co.jp.netwisdom.mapper.UserinfoMapper;
 
 public class UserDeleteService {
 	public void userDelete(String username) {
+		// 获取mapper
+		UserinfoMapper userinfoMapper = MyBatisUtil.getMapper(UserinfoMapper.class);
+		HobbyMapper hobbyMapper = MyBatisUtil.getMapper(HobbyMapper.class);
 
-		HobbyDAO hobbydao = new HobbyDAO();
-		UserinfoDAO userinfodao = new UserinfoDAO();
-
-		boolean upUserInfoFlag = true;
-		upUserInfoFlag = userinfodao.delUserInfo(username);
-
-		boolean upHobbyFlag = true;
-		upHobbyFlag = hobbydao.delHobby(username);
-
-		if(upUserInfoFlag && upHobbyFlag) {
-			System.out.println("用户信息 爱好信息删除成功！！");
-		}
-	}	
-
+		// 发送請求，执行sql操作
+		userinfoMapper.upUserinfoFlag(username);
+		hobbyMapper.upHobbyFlag(username);
+	}
 }

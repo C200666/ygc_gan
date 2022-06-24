@@ -12,6 +12,9 @@ import co.jp.netwisdom.form.Userform;
 import co.jp.netwisdom.service.UserSearchService;
 
 public class UserSearchAction extends Action {
+	
+	private UserSearchService userSearchService = new UserSearchService();
+	
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -20,12 +23,13 @@ public class UserSearchAction extends Action {
 		Userform userform = (Userform) form;
 
 		String username = userform.getUsername();
+		String password = userform.getPassword();
 		String sex = userform.getSex();
 		String major = userform.getMajor();
 		String intro = userform.getIntro();
 		String hobby = request.getParameter("hobby");
 
-		List<UserinfoHobby> list = new UserSearchService().userSearch(username, sex, major, intro, hobby);
+		List<UserinfoHobby> list = userSearchService.userSearch(username, password, sex, major, intro, hobby);
 
 		request.setAttribute("date", list);
 

@@ -15,6 +15,11 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class UserNameSearchAction extends Action {
+	
+	
+	private UserNameSearchService userNameSearchService = new UserNameSearchService();
+	
+	
 //	获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response) 
@@ -23,10 +28,11 @@ public class UserNameSearchAction extends Action {
 		Userform userform = (Userform) form;
 		
 		String username = userform.getUsername();
+		String password = userform.getPassword();
 		String sex = userform.getSex();
 		String major = userform.getMajor();
 		
-		List<UserinfoHobby> list = new UserNameSearchService().userNameSearch(username, sex, major); 
+		List<UserinfoHobby> list = userNameSearchService.userNameSearch(username, password,  sex, major); 
 		
 		response.setContentType("text/html;charset=UTF-8");
 		

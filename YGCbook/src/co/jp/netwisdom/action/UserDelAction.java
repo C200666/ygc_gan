@@ -7,13 +7,14 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import co.jp.netwisdom.dao.HobbyDAO;
-import co.jp.netwisdom.dao.UserinfoDAO;
 import co.jp.netwisdom.form.Userform;
 import co.jp.netwisdom.service.UserDeleteService;
 
 //处理前台请求
 public class UserDelAction extends Action {
+	
+	private UserDeleteService userDeleteService = new UserDeleteService();
+	
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +24,7 @@ public class UserDelAction extends Action {
 	
 		String username = userform.getUsername();
 		
-		new UserDeleteService().userDelete(username);
+		userDeleteService.userDelete(username);
 		
 		 
 		 
