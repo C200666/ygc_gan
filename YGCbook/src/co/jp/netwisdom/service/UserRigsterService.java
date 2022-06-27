@@ -3,6 +3,9 @@ package co.jp.netwisdom.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import co.jp.netwisdom.Interface.UserRigsterServiceInterface;
 import co.jp.netwisdom.Utils.MyBatisUtil;
 import co.jp.netwisdom.dto.UserRigisterDto;
 import co.jp.netwisdom.entity.Hobby;
@@ -10,7 +13,10 @@ import co.jp.netwisdom.entity.Userinfo;
 import co.jp.netwisdom.mapper.HobbyMapper;
 import co.jp.netwisdom.mapper.UserinfoMapper;
 
-public class UserRigsterService {
+@Service
+public class UserRigsterService implements UserRigsterServiceInterface {
+
+	@Override
 	public boolean UserRigster(UserRigisterDto dto) {
 
 		String[] hobby = dto.getHobby();

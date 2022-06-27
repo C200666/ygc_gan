@@ -6,17 +6,20 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import co.jp.netwisdom.dto.UserRigisterDto;
 import co.jp.netwisdom.form.Userform;
 import co.jp.netwisdom.service.UserRigsterService;
 
+@Controller(value = "/userRegister")
 //处理前台请求
 public class UserRegisterAction extends Action {
-	
-	
-	private UserRigsterService userRigsterService = new UserRigsterService();
-	
-	
+
+	@Autowired
+	private UserRigsterService userRigsterService;
+
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,

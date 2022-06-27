@@ -3,10 +3,15 @@ package co.jp.netwisdom.service;
 
 import co.jp.netwisdom.entity.Userinfo;
 import co.jp.netwisdom.mapper.UserinfoMapper;
+
+import org.springframework.stereotype.Service;
+
+import co.jp.netwisdom.Interface.UserNameCheckServiceInterface;
 import co.jp.netwisdom.Utils.MyBatisUtil;
 
-public class UserNameCheckService {
-	
+@Service
+public class UserNameCheckService implements UserNameCheckServiceInterface {
+		@Override
 		public Userinfo userNameCheck(String username) {
 
 			// 获取mapper

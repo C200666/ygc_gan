@@ -10,7 +10,7 @@
    	 			<action-mappings>
    	 			
    	 				<action path="/userRegister"
-   	 			            type="co.jp.netwisdom.action.UserRegisterAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userReg" path="/userRegSuccess.jsp" /> 
@@ -19,7 +19,7 @@
    	 				
    	 				
    	 				<action path="/userSearch"
-   	 			            type="co.jp.netwisdom.action.UserSearchAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userSearch" path="/userSearch.jsp" /> 
@@ -27,7 +27,7 @@
    	 				
    	 				
    	 				<action path="/userUpdateinit"
-   	 			            type="co.jp.netwisdom.action.UserUpdateinitAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userInit" path="/userUpdate.jsp" /> 
@@ -35,7 +35,7 @@
    	 				
    	 				
    	 				<action path="/userUpdate"
-   	 			            type="co.jp.netwisdom.action.UserUpdateAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userUpdate" path="/userUpdateSuccess.jsp" /> 
@@ -43,33 +43,38 @@
    	 				
    	 				
    	 				<action path="/userDel"
-   	 			            type="co.jp.netwisdom.action.UserDelAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userDel" path="/userDelSuccess.jsp" /> 
    	 				</action>
    	 				
    	 				<action path="/userDelAll"
-   	 			            type="co.jp.netwisdom.action.UserDelAllAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
 						<forward name="userDelAll" path="/userDelSuccess.jsp" /> 
    	 				</action>
    	 				
    	 				<action path="/userNameCheck"
-   	 			            type="co.jp.netwisdom.action.UserNameCheckAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
    	 				</action>
    	 				
    	 				<action path="/userNameSearch"
-   	 			            type="co.jp.netwisdom.action.UserNameSearchAction"
+   	 			            type="org.springframework.web.struts.DelegatingActionProxy"
 							name="userForm"	
    	 			            scope="request">
    	 				</action>
    	 				
      				</action-mappings>
      				<message-resources key ="userResources" parameter="applicationResources"/> 
+     				
+     				<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn"> 
+						<set-property property="contextConfigLocation"
+   								 value="/WEB-INF/applicationContext.xml"/> 
+		 			</plug-in>
 
 					 <!-- key =jsp文件内的 bundle   parameter= applicationResources  -->
 					

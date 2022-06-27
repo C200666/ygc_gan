@@ -7,14 +7,21 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import co.jp.netwisdom.Interface.UserNameCheckServiceInterface;
 import co.jp.netwisdom.entity.Userinfo;
 import co.jp.netwisdom.form.Userform;
-import co.jp.netwisdom.service.UserNameCheckService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller(value="/userNameCheck")
 public class UserNameCheckAction extends Action {
 	
-	private UserNameCheckService userNameCheckService = new UserNameCheckService();
-	
+	@Autowired
+	private UserNameCheckServiceInterface userNameCheckService;
+
+
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,

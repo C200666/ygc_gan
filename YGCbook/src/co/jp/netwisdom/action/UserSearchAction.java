@@ -7,14 +7,19 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import co.jp.netwisdom.Interface.UserSearchServiceInterface;
 import co.jp.netwisdom.entity.UserinfoHobby;
 import co.jp.netwisdom.form.Userform;
-import co.jp.netwisdom.service.UserSearchService;
 
+@Controller(value = "/userSearch")
 public class UserSearchAction extends Action {
-	
-	private UserSearchService userSearchService = new UserSearchService();
-	
+
+	@Autowired
+	private UserSearchServiceInterface userSearchService;
+
 	// 获取前台请求的参数值
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,

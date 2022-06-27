@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/web.xml=UTF-8
+encoding//WebRoot/errorMessage.jsp=UTF-8
 encoding//WebRoot/userReg.jsp=UTF-8
 encoding//WebRoot/userRegSuccess.jsp=UTF-8
 encoding//WebRoot/userUpdate.jsp=UTF-8

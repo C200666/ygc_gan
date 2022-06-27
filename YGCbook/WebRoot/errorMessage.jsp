@@ -1,9 +1,10 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=gbk" isErrorPage="true"%>
+
+%@ page language="java" import="java.util.*" contentType="text/html; charset=gbk" isErrorPage="true"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>ดํฮ๓ฬแสพาณรๆ</title>
+    <title>้”่ฏฏๆ็คบ้กต้ข</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -13,6 +14,6 @@
   </head>
   
   <body>
-   	 ดํฮ๓ฬแสพาณรๆ<%=exception.getMessage()%> ว๋ตใป๗<a href="<%=request.getContextPath()%>/FindBookTypeServlet">ีโภ๏</a>ฬ๘ืช<br>
+   	 ้”่ฏฏๆ็คบ้กต้ข<%=exception.getMessage()%> ่ฏท็นๅป<a href="<%=request.getContextPath()%>/FindBookTypeServlet">่ฟ้</a>่ทณ่ฝฌ<br>
   </body>
 </html>
